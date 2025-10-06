@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AimForge Report</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="banner">
+        <div class="navbar">
+            <div class="logo">
+                <video class="logo" autoplay loop muted>
+                    <source src="/videos/aimlog.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/reportform">Report</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/help">Help</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Report Content -->
+    <div class="content">
+            <h1>Report for: <%= name %></h1>
+            <h2>Bookings:</h2>
+            <ul>
+                <% if (booking.length === 0) { %>
+                    <li>No bookings found in the selected date range.</li>
+                <% } else { %>
+                    <% booking.forEach(booking => { %>
+                        <li>
+                            <strong>Date:</strong> <%= booking.sessionDate.toDateString() %><br>
+                            <strong>Details:</strong> <%= booking.sessionTime %><br>
+                        </li>
+                    <% }); %>
+                <% } %>
+            </ul>
+    </div>
+</body>
+</html>
