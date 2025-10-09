@@ -5,7 +5,8 @@ const submissionSchema = new mongoose.Schema({
     url: { type: String, required: true }, //URL of the submission
     content: { type: String, required: true }, //content or description of the submission
     author:  { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, //reference to the User model
-    createdAt: { type: Date, default: Date.now } //timestamp
+    createdAt: { type: Date, default: Date.now }, //timestamp
+    upvotes: { type: Number, default: 0 } //number of upvotes
 });
 
 const Submission = mongoose.model('Submission', submissionSchema);
