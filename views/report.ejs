@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AimForge Report</title>
+    <title>Hot Off The Press Report</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
@@ -27,20 +27,23 @@
 
     <!-- Report Content -->
     <div class="content">
-            <h1>Report for: <%= name %></h1>
-            <h2>Bookings:</h2>
-            <ul>
-                <% if (booking.length === 0) { %>
-                    <li>No bookings found in the selected date range.</li>
-                <% } else { %>
-                    <% booking.forEach(booking => { %>
-                        <li>
-                            <strong>Date:</strong> <%= booking.sessionDate.toDateString() %><br>
-                            <strong>Details:</strong> <%= booking.sessionTime %><br>
-                        </li>
-                    <% }); %>
-                <% } %>
-            </ul>
+        <h1>Submission Report for Author: <%= author %></h1>
+        <p>From <%= startDate %> to <%= endDate %></p>
+        <ul>
+            <% if (submissions.length === 0) { %>
+                <li>No submissions found in the selected date range.</li>
+            <% } else { %>
+                <% submissions.forEach(function(submission) { %>
+                    <li>
+                        <strong>Title:</strong> <%= submission.title %><br>
+                        <strong>Date:</strong> <%= submission.createdAt.toDateString() %><br>
+                        <strong>Upvotes:</strong> <%= submission.upvotes %><br>
+                        <strong>Content:</strong> <%= submission.content %>
+                    </li>
+                <% }); %>
+            <% } %>
+        </ul>
+        <a href="/reportform">Back to Report Form</a>
     </div>
 </body>
 </html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Submit Story | HotOffThePress</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <div class="logo">
+                <video class="logo" autoplay loop muted>
+                    <source src="/videos/aimlog.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/submissions/create">Submit Story</a></li>
+                <li><a href="/submissions/table">All Submissions</a></li>
+                <li><a href="/reportform">Report</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/help">Help</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-container">
+        <h2>Submit a Hacker Story!</h2>
+        <form id="form" action="/submissions/create" method="POST">
+            <p>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </p>
+            <br>
+            <p>
+                <label for="url">URL:</label>
+                <input type="text" id="url" name="url">
+            </p>
+            <br>
+            <p>
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" required></textarea>
+            </p>
+            <br>
+            <button id="button" type="submit">Submit Story</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('form');
+        form.onsubmit = (e) => {
+            // Prevent default submission
+            e.preventDefault();
+
+            // Validate fields
+            const title = document.getElementById('title').value.trim();
+            const url = document.getElementById('url').value.trim();
+            const content = document.getElementById('content').value.trim();
+
+            // Title validation
+            if (title.length === 0) {
+                alert("Title is required.");
+                return;
+            }
+
+            // URL validation (optional, but if present, must be valid)
+            if (url.length > 0 && !/^https?:\/\/.+\..+/.test(url)) {
+                alert("Please enter a valid URL (starting with http:// or https://).");
+                return;
+            }
+
+            // Content validation
+            if (content.length === 0) {
+                alert("Content is required.");
+                return;
+            }
+
+            // If all validations pass
+            form.submit();
+        };
+    </script>
+</body>
+
+</html>

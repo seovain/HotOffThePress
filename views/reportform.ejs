@@ -1,48 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<html>
-    <head>
-        <title>AimForge</title>
-        <link rel="stylesheet" href="/stylesheets/style.css"></link>
-    </head>
-    
-    <body>
-        <div class=" banner ">
-            <div class="navbar ">
-                <div class="logo">
-                    <video class="logo" autoplay loop muted>
-                        <source src="/videos/aimlog.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                  </div>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href ="/booking/create ">New Booking</a></li>
-                    <li><a href="/reportform">Report</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/help">Help</a></li>
-                </ul>
+<head>
+    <title>AimForge</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <div class="logo">
+                <video class="logo" autoplay loop muted>
+                    <source src="/videos/aimlog.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/submissions/create">Submit Story</a></li>
+                <li><a href="/reportform">Report</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/help">Help</a></li>
+            </ul>
+        </div>
+    </div>
     <div class="content">
-        <form id="reportForm" action="/booking/report" method="post">
-            <!-- User Name Input -->
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter user name" required>
-            <br>
-
-            <!-- Start Date Input -->
-            <label for="startDate">Start Date:</label>
-            <input type= "date" id="startDate" name="startDate" required>
-            <br>
-
-            <!-- End Date Input -->
-            <label for="endDate">End Date:</label>
-            <input type= "date" id="endDate" name="endDate" required>
-            <br>
-
-            <!-- Submit Button -->
-            <button id="generateReport"  action= "/report" method= "post" type="submit">Generate Report</button>
+        <h1>Generate Submission Report</h1>
+        <form action="/submissions/report" method="POST">
+            <label>Author ID:</label>
+            <input type="text" name="author" required><br>
+            <label>Start Date:</label>
+            <input type="date" name="startDate" required><br>
+            <label>End Date:</label>
+            <input type="date" name="endDate" required><br>
+            <button type="submit">Generate Report</button>
         </form>
     </div>
+</body>
 </html>
