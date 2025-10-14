@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Submissions | HotOffThePress</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <div class="logo">
+                <video class="logo" autoplay loop muted>
+                    <source src="/videos/aimlog.mp4" type="video/mp4">
+                </video>
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/submissions/create">Submit Story</a></li>
+                <li><a href="/user/submissions">My Submissions</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/help">Help</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>My Submissions</h2>
+            <table border="1">
+                <tr>
+                    <th>Title</th>
+                    <th>URL</th>
+                    <th>Content</th>
+                    <th>Created At</th>
+                    <th>Upvotes</th>
+                </tr>
+                <% if (submissionList && submissionList.length > 0) { %>
+                    <% submissionList.forEach(function(submission) { %>
+                        <tr>
+                            <td><%= submission.title %></td>
+                            <td>
+                                <% if (submission.url) { %>
+                                    <a href="<%= submission.url %>"><%= submission.url %></a>
+                                <% } else { %>
+                                    N/A
+                                <% } %>
+                            </td>
+                            <td><%= submission.content %></td>
+                            <td><%= submission.createdAt.toDateString() %></td>
+                            <td><%= submission.upvotes %></td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="5">You have not submitted any stories yet.</td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
