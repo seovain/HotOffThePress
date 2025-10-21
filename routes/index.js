@@ -1,30 +1,34 @@
 var express = require('express');
 var router = express.Router();
-const bookings = require('../models/booking');
 
-//all of the endpoints / URI's
+// Homepage
 router.get('/', function(req, res, next) {
-    res.render('home', { title: 'home' });
+    res.render('home', { title: 'Home' });
 });
+
+// Help page
 router.get('/help', function(req, res, next) {
-    res.send('This is the help Page');
+    res.render('help', { title: 'Help' });
 });
-router.get('/table', function(req, res) {
-    bookings.find().then((bookingsfound) => {
-        res.render('table', { 'bookinglist': bookingsfound, title: 'tablepage' });
-    })
-});
+
+// About page
 router.get('/about', function(req, res, next) {
-    res.send('This is the about Page');
+    res.render('about', { title: 'About Us' });
 });
 
+// FAQ page
+router.get('/faq', function(req, res, next) {
+    res.render('faq', { title: 'FAQ' });
+});
+
+// Report form page
 router.get('/reportform', function(req, res, next) {
-    res.render('reportform', { title: 'Report'})
+    res.render('reportform', { title: 'Report' });
 });
 
+// Report results page
 router.get('/report', function(req, res, next) {
-  res.render('report')
+    res.render('report', { title: 'Submission Report' });
 });
 
-
-module.exports = router; //exports from this file so that other files are allowed to access the exported code
+module.exports = router;
