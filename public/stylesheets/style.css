@@ -1,19 +1,70 @@
+/* === BODY + MATRIX BACKGROUND === */
 body {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Center vertically */
-  min-height: 100vh; /* Set the height of the container to fill the viewport */
-  margin: 0; /* Remove default margin */
-  background-color: #f3f4f6; /* Optional: background color for the page */
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: black;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Courier New', monospace;
+  color: #00ffff;
 }
 
+/* MATRIX CODE RAIN EFFECT */
+@keyframes matrixRain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
 
+/* Create multiple columns of falling code */
+.matrix-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.matrix-bg span {
+  position: absolute;
+  top: -20%;
+  color: rgba(0, 255, 255, 0.25);
+  font-size: 18px;
+  white-space: nowrap;
+  animation: matrixRain linear infinite;
+}
+
+/* Randomized positions and speeds */
+.matrix-bg span:nth-child(1) { left: 5%; animation-duration: 8s; animation-delay: 0s; }
+.matrix-bg span:nth-child(2) { left: 10%; animation-duration: 10s; animation-delay: 2s; }
+.matrix-bg span:nth-child(3) { left: 20%; animation-duration: 9s; animation-delay: 1s; }
+.matrix-bg span:nth-child(4) { left: 30%; animation-duration: 11s; animation-delay: 3s; }
+.matrix-bg span:nth-child(5) { left: 40%; animation-duration: 8s; animation-delay: 4s; }
+.matrix-bg span:nth-child(6) { left: 50%; animation-duration: 10s; animation-delay: 2s; }
+.matrix-bg span:nth-child(7) { left: 60%; animation-duration: 9s; animation-delay: 1s; }
+.matrix-bg span:nth-child(8) { left: 70%; animation-duration: 12s; animation-delay: 3s; }
+.matrix-bg span:nth-child(9) { left: 80%; animation-duration: 8s; animation-delay: 4s; }
+.matrix-bg span:nth-child(10) { left: 90%; animation-duration: 11s; animation-delay: 2s; }
+
+/* === MAIN CONTENT === */
 .banner {
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/images/glow.jpg);
-  background-size: cover;
-  background-position: center;
-  background-color: gray;
+  background: rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 1;
 }
 
 .content {
@@ -22,7 +73,9 @@ body {
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
-  color: #fff;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00bfff, 0 0 40px #00ffff;
+  z-index: 2;
 }
 
 .content h1 {
@@ -30,54 +83,59 @@ body {
   margin-top: 80px;
 }
 
+.content h2,
+.content h3,
+.content p {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #00ffff;
+}
+
 .content h3 {
-  color: #8cd3ff;
   text-decoration: underline;
 }
 
-.content h2 {
-  color: rgb(255, 255, 255);
-}
-
-.content p {
-  margin: 20px auto;
-  font-weight: 100;
-  line-height: 25px;
-}
-
+/* === FORM CONTAINER === */
 .form-container {
-  width: 400px; /* Set a fixed width */
-  padding: 20px; /* Add some padding */
-  border: 1px solid hsl(231, 59%, 26%); /* Border */
-  border-radius: 5px; /* Rounded corners */
-  background-color: #5982b1; /* Background color */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow */
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #00bfff;
+  border-radius: 10px;
+  background-color: rgba(0, 20, 40, 0.8);
+  box-shadow: 0 0 20px #00bfff;
   text-align: center;
+  color: #00ffff;
+  z-index: 2;
 }
 
 .form-container input,
 .form-container textarea,
 .form-container select {
-  width: calc(100% - 20px); /* Full width minus padding */
-  padding: 10px; /* Add padding inside inputs */
-  margin-bottom: 15px; /* Space between inputs */
-  border: 1px solid hsl(231, 59%, 26%); /* Border for inputs */
-  border-radius: 3px; /* Rounded corners for inputs */
-  box-sizing: border-box; /* Ensure padding is included in width calculation */
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #00bfff;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: rgba(0, 10, 30, 0.8);
+  color: #00ffff;
 }
 
 .form-container button {
-  padding: 10px 15px; /* Add padding for the button */
-  background-color: hsl(231, 59%, 26%);
-  color: white;
+  padding: 10px 15px;
+  background-color: #00bfff;
+  color: black;
   border: none;
-  border-radius: 3px;
+  border-radius: 25px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .form-container button:hover {
-  background-color: hsl(231, 59%, 36%);
+  background-color: #00ffff;
+  box-shadow: 0 0 15px #00ffff;
 }
+
+/* === BUTTONS === */
 button {
   width: 200px;
   padding: 15px 0;
@@ -85,16 +143,17 @@ button {
   margin: 20px 10px;
   border-radius: 25px;
   font-weight: bold;
-  border: 2px solid #1a2479;
+  border: 2px solid #00ffff;
   background: transparent;
-  color: #fff;
+  color: #00ffff;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-span {
-  background: #141275;
+button span {
+  background: #00ffff;
   height: 100%;
   width: 0%;
   border-radius: 25px;
@@ -111,67 +170,45 @@ button:hover span {
 }
 
 button:hover {
+  color: black;
   border: none;
-  padding: 17px 0;
-  /* 
-  *button has 15px of padding, and 2px of border
-  *removing the border causes the forms to "bounce"
-  *fixed by adding an additional 2px of padding
-   */
+  box-shadow: 0 0 15px #00ffff;
 }
 
-caption {
-  font-size: 20px;
-  margin-top: 80px;
-  text-align: center;
-  color: #fff;
-}
-
-.secret input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-
-/* Styling the navbar */
+/* === NAVBAR === */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #141f4e;
+  background-color: rgba(0, 20, 40, 0.8);
   padding: 10px 20px;
-  color: white;
+  color: #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+  position: relative;
+  z-index: 3;
 }
 
-/* Logo container styling */
-.navbar .logo {
-  display: flex;
-  align-items: center;
-}
-
-/* Logo video styling */
 .navbar .logo video {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 10px;
+  box-shadow: 0 0 15px #00ffff;
 }
 
-/* Logo text next to the video */
 .navbar .logo::after {
-  content: 'AimForge';
+  content: 'Hot Off The Press';
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
 }
 
-/* Styling the navigation links */
 .navbar ul {
-  list-style-type: none;
+  list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
-  display: flex;
 }
 
 .navbar ul li {
@@ -180,11 +217,29 @@ caption {
 
 .navbar ul li a {
   text-decoration: none;
-  color: white;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+  color: #00ffff;
+  transition: 0.3s;
 }
 
 .navbar ul li a:hover {
-  color: #1e90ff;
+  color: white;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+/* Caption text */
+caption {
+  font-size: 20px;
+  text-align: center;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+/* Hidden secret input */
+.secret input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.secret label {
+  display: none;
 }

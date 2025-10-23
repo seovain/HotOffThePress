@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title><%= title %> | HotOffThePress</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="banner">
+    <div class="navbar">
+      <div class="logo">
+        <video class="logo" autoplay loop muted>
+          <source src="/videos/aimlog.mp4" type="video/mp4">
+        </video>
+      </div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/submissions/create">Submit Story</a></li>
+        <li><a href="/user/submissions">My Submissions</a></li>
+        <li><a href="/users/account">My Account</a></li>
+        <li><a href="/users/logout">Logout</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/help">Help</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h2>My Account</h2>
+
+      <% if (user) { %>
+        <div class="account-details">
+          <p><strong>Username:</strong> <%= user.username %></p>
+          <p><strong>Email:</strong> <%= user.email %></p>
+          <p><strong>Member since:</strong> <%= (user.createdAt ? user.createdAt.toDateString() : '') %></p>
+        </div>
+
+        <p>
+          <a class="button" href="/user/submissions">View My Submissions</a>
+          <a class="button" href="/submissions/create">Submit New Story</a>
+        </p>
+      <% } else { %>
+        <p>You are not signed in. <a href="/users/login">Login</a> or <a href="/users/register">Create an account</a>.</p>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>
