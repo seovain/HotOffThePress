@@ -3,6 +3,7 @@
 <head><title><%= title %></title></head>
 <body>
   <h1>Create Account</h1>
+  <link rel="stylesheet" href="/stylesheets/login.css">
   <% if (error) { %><p style="color:red"><%= error %></p><% } %>
   <form method="POST" action="/users/register">
     <label>Username: <input name="username" required></label><br>
