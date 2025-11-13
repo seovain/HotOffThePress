@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= title %> | HotOffThePress</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="banner">
+    <div class="navbar">
+      <div class="logo">
+        <video class="logo" autoplay loop muted>
+          <source src="/videos/aimlog.mp4" type="video/mp4">
+        </video>
+      </div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/submissions/create">Submit Story</a></li>
+        <li><a href="/submissions/mine">My Submissions</a></li>
+        <li><a href="/users/account">My Account</a></li>
+        <li>
+          <form action="/users/logout" method="POST" style="display:inline;margin:0;">
+            <button type="submit" style="background:none;border:none;color:inherit;cursor:pointer;padding:0;">Logout</button>
+          </form>
+        </li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/help">Help</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h2>Submit a Story</h2>
+      <% if (error) { %><p style="color:#ff6b6b"><%= error %></p><% } %>
+      <form method="POST" action="/submissions/create" class="form-container">
+        <label>Title<br><input name="title" required></label><br><br>
+        <label>URL (optional)<br><input name="url" type="url"></label><br><br>
+        <label>Content<br><textarea name="content" rows="8" required></textarea></label><br><br>
+        <button type="submit">Submit Story</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+</html>
