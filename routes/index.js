@@ -1,11 +1,18 @@
 var express = require('express');
 var router = express.Router();
+const HNStory = require('../models/HNStory');
 
 // Homepage
-router.get('/', function(req, res, next) {
-    res.render('home', { title: 'Home' });
+router.get('/', async function(req, res, next) {
+    try {
+        // fetch cached HN stories (most recent/favored)
+        const hnStories = await HNStory.find().sort({ score: -1, time: -1 }).limit(10);
+        res.render('home', { title: 'Home', hnStories: hnStories });
+    } catch (err) {
+        console.error(err);
+        res.render('home', { title: 'Home', hnStories: [] });
+    }
 });
-
 // Help page
 router.get('/help', function(req, res, next) {
     res.render('help', { title: 'Help' });

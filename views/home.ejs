@@ -5,19 +5,6 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-    <div class="matrix-bg">
-        <span>0101011100110110011001010101</span>
-        <span>1010110100110100011100100110</span>
-        <span>1001100101011100110100110011</span>
-        <span>1110001110100110100101100110</span>
-        <span>1010011001010011001101101001</span>
-        <span>1110010100110110101100100101</span>
-        <span>0110100101110100011100100110</span>
-        <span>1001011011110110111000100110</span>
-        <span>1100110100011010010110111101</span>
-        <span>0111001001100101011100110110</span>
-    </div>
-
     <div class="banner">
         <div class="navbar">
             <div class="logo">
@@ -41,10 +28,29 @@
             <p>This is a Hacker News-style site. You must be signed in to submit or view your stories.</p>
             <hr>
             <h3>Latest Hacker Stories</h3>
-            <!-- Stories list will be added here later -->
-            <div id="stories-placeholder">
-                <p>Stories will appear here soon!</p>
-            </div>
+
+            <% if (hnStories && hnStories.length) { %>
+              <ol>
+                <% hnStories.forEach(function(s) { %>
+                  <li style="margin:10px 0; text-align:left; color:inherit;">
+                    <a href="<%= s.url || ('https://news.ycombinator.com/item?id=' + s.hnId) %>" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">
+                      <strong><%= s.title %></strong>
+                    </a>
+                    <div style="font-size:0.9em; opacity:0.8;">
+                      by <%= s.by %> • <%= new Date(s.time * 1000).toLocaleString() %> • score: <%= s.score %>
+                    </div>
+                    <% if (s.text) { %>
+                      <div style="margin-top:6px; font-size:0.95em; opacity:0.9;"><%= s.text %></div>
+                    <% } %>
+                  </li>
+                <% }); %>
+              </ol>
+            <% } else { %>
+              <div id="stories-placeholder">
+                  <p>Stories will appear here soon!</p>
+              </div>
+            <% } %>
+
         </div>
     </div>
 </body>

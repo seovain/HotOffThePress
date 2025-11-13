@@ -6,6 +6,8 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo');
+const hnFetcher = require('./routes/hnfetcher');
+
 
 // ...existing code...
 
@@ -27,9 +29,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB connection
-const url = 'mongodb://localhost:27017/AimForgePractice';
+const url = 'mongodb://localhost:27017/HotOffThePress';
 mongoose.connect(url)
-    .then(() => console.log("Connected correctly to server :)!"))
+    .then(() => {
+      console.log("Connected correctly to server :)!");
+      // start HN background fetcher after DB connected
+      hnFetcher.start(); // starts periodic polling of Hacker News
+    })
     .catch((err) => console.log("this aint working lil bro", err));
 
 // Session (use Mongo store so sessions survive server restarts)
