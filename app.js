@@ -6,15 +6,15 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo');
-const hnFetcher = require('./routes/hnfetcher');
+var hnFetcher = require('./routes/hnfetcher');
 
-
-// ...existing code...
 
 // Routers
 var indexRouter = require('./routes/index');
 var submissionRouter = require('./routes/submissions');
 var userRouter = require('./routes/users'); // <-- fixed filename
+var aiSupportRouter = require('./routes/aisupport');
+
 
 var app = express();
 
@@ -63,6 +63,8 @@ app.use(function(req, res, next) {
 app.use('/', indexRouter); // Home, FAQ, About, Help, etc.
 app.use('/submissions', submissionRouter); // Submission routes
 app.use('/users', userRouter); // User routes (register/login/logout)
+app.use('/aisupport', aiSupportRouter); // AI Support
+
 
 // Set the port
 const PORT = process.env.PORT || 3000;
@@ -70,5 +72,4 @@ app.listen(PORT, () => {
   console.log(`Your server is now running on port ${PORT}`);
 });
 
-// ...existing error handling code...
 module.exports = app;

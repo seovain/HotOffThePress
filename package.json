@@ -6,16 +6,30 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@langchain/community": "^1.0.3",
+    "@langchain/langgraph": "^1.0.2",
+    "@langchain/langgraph-checkpoint-mongodb": "^1.0.0",
+    "@langchain/mongodb": "^1.0.0",
     "bcryptjs": "^3.0.2",
     "connect-mongo": "^5.1.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
-    "express": "~4.16.1",
+    "express": "^4.21.2",
     "express-session": "^1.18.2",
     "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
+    "jade": "^0.31.2",
+    "langchain": "^1.0.4",
+    "mongodb": "^7.0.0",
     "mongoose": "^8.8.3",
-    "morgan": "~1.9.1"
+    "morgan": "^1.10.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
