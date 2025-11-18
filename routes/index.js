@@ -1,18 +1,30 @@
 var express = require('express');
 var router = express.Router();
 const HNStory = require('../models/HNStory');
+const User = require('../models/user');
 
+
+// Homepage
+// ...existing code...
 // Homepage
 router.get('/', async function(req, res, next) {
     try {
         // fetch cached HN stories (most recent/favored)
         const hnStories = await HNStory.find().sort({ score: -1, time: -1 }).limit(10);
-        res.render('home', { title: 'Home', hnStories: hnStories });
+
+        // load simple user info if logged in
+        let user = null;
+        if (req.session && req.session.userId) {
+            user = await User.findById(req.session.userId).select('username');
+        }
+
+        res.render('home', { title: 'Home', hnStories: hnStories, user: user });
     } catch (err) {
         console.error(err);
-        res.render('home', { title: 'Home', hnStories: [] });
+        res.render('home', { title: 'Home', hnStories: [], user: null });
     }
 });
+// ...existing code...
 // Help page
 router.get('/help', function(req, res, next) {
     res.render('help', { title: 'Help' });

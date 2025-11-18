@@ -4,7 +4,16 @@
     <title>HotOffThePress</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <body>
+
+    <!-- MATRIX BACKGROUND (ADD THIS) -->
+    <div class="matrix-bg">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <!-- END MATRIX BACKGROUND -->
+
     <div class="banner">
         <div class="navbar">
             <div class="logo">
@@ -23,9 +32,10 @@
                 <li><a href="/aisupport">Help</a></li>
             </ul>
         </div>
+
         <div class="content">
             <h2>Welcome to HotOffThePress!</h2>
-            <p>This is a Hacker News-style site. You must be signed in to submit or view your stories.</p>
+            <p><strong>Username:</strong> <%= user.username %></p>
             <hr>
             <h3>Latest Hacker Stories</h3>
 
@@ -33,12 +43,15 @@
               <ol>
                 <% hnStories.forEach(function(s) { %>
                   <li style="margin:10px 0; text-align:left; color:inherit;">
-                    <a href="<%= s.url || ('https://news.ycombinator.com/item?id=' + s.hnId) %>" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">
+                    <a href="<%= s.url || ('https://news.ycombinator.com/item?id=' + s.hnId) %>" 
+                       target="_blank" rel="noopener noreferrer"
+                       style="color:inherit; text-decoration:underline;">
                       <strong><%= s.title %></strong>
                     </a>
                     <div style="font-size:0.9em; opacity:0.8;">
                       by <%= s.by %> • <%= new Date(s.time * 1000).toLocaleString() %> • score: <%= s.score %>
                     </div>
+
                     <% if (s.text) { %>
                       <div style="margin-top:6px; font-size:0.95em; opacity:0.9;"><%= s.text %></div>
                     <% } %>
@@ -53,5 +66,6 @@
 
         </div>
     </div>
+
 </body>
 </html>
