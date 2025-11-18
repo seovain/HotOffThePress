@@ -60,6 +60,7 @@ app.use(function(req, res, next) {
 });
 
 // Routing
+app.use(express.static('public'));
 app.use('/', indexRouter); // Home, FAQ, About, Help, etc.
 app.use('/submissions', submissionRouter); // Submission routes
 app.use('/users', userRouter); // User routes (register/login/logout)

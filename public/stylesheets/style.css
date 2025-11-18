@@ -5,7 +5,6 @@ body {
   min-height: 100vh;
   margin: 0;
   background: black;
-  overflow: hidden;
   position: relative;
   font-family: 'Courier New', monospace;
   color: #00ffff;
@@ -65,33 +64,120 @@ body {
   background: rgba(0, 0, 0, 0.7);
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
   width: 100%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   color: #00ffff;
   text-shadow: 0 0 10px #00ffff, 0 0 20px #00bfff, 0 0 40px #00ffff;
   z-index: 2;
+  padding: 20px 0;
 }
 
 .content h1 {
   font-size: 50px;
-  margin-top: 80px;
-}
-
-.content h2,
-.content h3,
-.content p {
-  color: #00ffff;
-  text-shadow: 0 0 10px #00bfff, 0 0 20px #00ffff;
+  margin-top: 0;
 }
 
 .content h3 {
   text-decoration: underline;
+}
+
+.content p {
+  color: #00ffff;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ecffff;
+}
+
+/*Submission table*/
+.AllSubs {
+    color: #00ffff;
+    margin: 20px;
+}
+
+.AllSubs table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(0, 20, 40, 0.8);
+    box-shadow: 0 0 15px #00bfff;
+}
+
+.AllSubs th, .AllSubs td {
+    border: 1px solid #00bfff;
+    padding: 10px;
+    text-align: left;
+}
+
+.AllSubs th {
+    background-color: rgba(0, 40, 80, 0.9);
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.AllSubs tr:hover {
+    background-color: rgba(0, 60, 120, 0.3);
+}
+
+.AllSubs a {
+    color: white !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.AllSubs a:hover {
+    color: #00ffff !important;
+    text-decoration: underline;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+/*My account page*/
+.MyAcc .button {
+    color: #00ffff !important;
+    border: 2px solid #00ffff !important;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.MyAcc .button:hover {
+    color: black !important;
+    background-color: #00ffff !important;
+    box-shadow: 0 0 15px #00ffff;
+    text-decoration: none;
+}
+
+/*FAQ*/
+.FAQ {
+    text-align: center;
+}
+
+.FAQ h2 {
+  font-size: 180%;
+    margin-bottom: 0; 
+    color:#5195fc;
+    display: inline-block;
+}
+
+.FAQ h3 {
+    margin: 5px 0 20px 0; 
+    padding: 0;
+    display: block;
+}
+
+.FAQ img {
+    display: block;
+    margin: 0 auto; /* Center the GIF */
+    max-width: 100%; /* Make sure it doesn't overflow */
 }
 
 /* === FORM CONTAINER === */

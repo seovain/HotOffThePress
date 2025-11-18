@@ -24,6 +24,7 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/submissions/create">Submit Story</a></li>
+                <li><a href="/submissions">All Submissions</a></li>
                 <li><a href="/user/submissions">My Submissions</a></li>
                 <li><a href="/users/account">My Account</a></li>
                 <li><a href="/users/logout">Logout</a></li>
@@ -34,9 +35,8 @@
         </div>
 
         <div class="content">
-            <h2>Welcome to HotOffThePress!</h2>
-            <p><strong>Username:</strong> <%= user.username %></p>
-            <hr>
+            <h2>Welcome to Hot Off The Press, <strong><%= user.username %></strong>! <img src="https://pixelsafari.neocities.org/favicon/animals/cat/cat42.gif" > </h2>
+
             <h3>Latest Hacker Stories</h3>
 
             <% if (hnStories && hnStories.length) { %>

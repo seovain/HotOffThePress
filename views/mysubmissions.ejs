@@ -29,7 +29,7 @@
       </ul>
     </div>
 
-    <div class="content">
+    <div class="AllSubs">
       <h2>My Submissions</h2>
       <table border="1">
         <tr>
@@ -51,7 +51,7 @@
               </td>
               <td><%= submission.content %></td>
               <td><%= submission.createdAt ? submission.createdAt.toDateString() : '' %></td>
-              <td><%= submission.upvotes %></td>
+              
             </tr>
           <% }); %>
         <% } else { %>
