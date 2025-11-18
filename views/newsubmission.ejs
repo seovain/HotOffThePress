@@ -34,7 +34,7 @@
       <% if (error) { %><p style="color:#ff6b6b"><%= error %></p><% } %>
       <form method="POST" action="/submissions/create" class="form-container">
         <label>Title<br><input name="title" required></label><br><br>
-        <label>URL (optional)<br><input name="url" type="url"></label><br><br>
+        <label>URL<br><input name="url" type="url"></label><br><br>
         <label>Content<br><textarea name="content" rows="8" required></textarea></label><br><br>
         <button type="submit">Submit Story</button>
       </form>
