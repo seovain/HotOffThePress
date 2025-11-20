@@ -156,23 +156,110 @@ body {
     text-decoration: none;
 }
 
-/*FAQ*/
+/* My Account Styles */
+.MyAcc {
+    max-width: 600px; /* Limit width for better readability */
+    margin: 20px auto; /* Center the section horizontally */
+    padding: 20px; /* Padding inside the account section */
+    background: rgba(0, 20, 40, 0.7); /* Semi-transparent background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 183, 255, 0.5); /* Soft shadow for depth */
+    color: #ffffff; /* Text color */
+    text-align: center; /* Center text */
+}
+
+.MyAcc h2 {
+    font-size: 2.5rem; /* Larger font size for the heading */
+    margin-bottom: 15px; /* Space below the heading */
+    color: #00ffff; /* Cyan color for the heading */
+}
+
+/* About Us Page Styles */
+.about {
+    max-width: 800px; /* Limit width for readability */
+    width: 100%; /* Full width */
+    padding: 20px; /* Padding inside the about section */
+    color: #ffffff; /* Text color */
+    text-align: center; /* Center text */
+    margin: 0 auto; /* <<< Centers the whole section on the page */
+}
+
+.about h2 {
+    font-size: 2.5rem; /* Larger font size for the main heading */
+    margin-bottom: 15px; /* Space below the heading */
+    color: #00ffff; /* Cyan color for the heading */
+}
+
+.about h3 {
+    font-size: 1.8rem; /* Slightly larger subheading */
+    margin-top: 20px; /* Space above subheadings */
+    color: #00ffff; /* Cyan color for subheadings */
+}
+
+.about p {
+    font-size: 1.1rem; /* Standard paragraph font size */
+    line-height: 1.6; /* Increased line height for readability */
+    margin: 10px 0; /* Space above and below paragraphs */
+}
+
+/* Link styles */
+.about a {
+    color: #00ffff; /* Cyan color for links */
+    text-decoration: underline; /* Underline links */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.about a:hover {
+    color: #e6ffff; /* Lighter cyan on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+
+/* FAQ Section Styles */
 .FAQ {
     text-align: center;
+    padding: 20px;
+    background: rgba(0, 20, 40, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00bfff;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
 }
 
 .FAQ h2 {
-  font-size: 180%;
-    margin-bottom: 0; 
-    color:#5195fc;
-    display: inline-block;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
 }
 
 .FAQ h3 {
-    margin: 5px 0 20px 0; 
-    padding: 0;
-    display: block;
+    margin: 10px 0 20px 0;
 }
+
+.FAQ ul {
+    list-style: none;
+    padding: 0;
+}
+
+.FAQ li {
+    background: rgba(0, 40, 80, 0.9);
+    border: 1px solid rgba(0, 183, 255, 0.12);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.FAQ li:hover {
+    background: rgba(0, 60, 120, 0.3);
+}
+
+.FAQ strong {
+    color: #00ffff;
+}
+
 
 .FAQ img {
     display: block;
@@ -311,9 +398,6 @@ button:hover {
   color: white;
   text-shadow: 0 0 15px #00ffff;
 }
-
-/* ...existing code... */
-
 /* Dropdown for My Account */
 .nav-dropdown {
   position: relative;
@@ -472,3 +556,135 @@ caption {
     margin-top: 6px;
   }
 }
+/* Submission success / readable content styling */
+.submissioncontent {
+  max-width: 920px;
+  margin: 36px auto;
+  padding: 32px 40px;
+  border-radius: 14px;
+  color: #e6efff;
+  background: linear-gradient(180deg, rgba(30,6,60,0.12), rgba(6,10,30,0.10));
+  border: 1px solid rgba(140,100,255,0.07);
+  box-shadow:
+    0 10px 30px rgba(20,8,60,0.45),
+    0 0 28px rgba(80,40,180,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.02);
+  backdrop-filter: blur(6px) saturate(120%);
+  text-align: left;
+  line-height: 1.65;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.submissioncontent:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 18px 48px rgba(20,8,60,0.6),
+    0 0 40px rgba(110,70,255,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* Decorative header glow */
+.submissioncontent::before {
+  content: '';
+  position: absolute;
+  left: -2%;
+  top: -2%;
+  width: 104%;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(130,80,255,0.12), rgba(0,200,255,0.06));
+  border-radius: 6px;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* Page heading */
+.submissioncontent h2 {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  color: #e8dcff;
+  text-align: center;
+  letter-spacing: 0.2px;
+  text-shadow: 0 0 12px rgba(150,100,255,0.12), 0 0 6px rgba(0,200,255,0.03);
+}
+
+/* Submission title */
+.submissioncontent h3 {
+  margin: 14px 0 8px;
+  font-size: 1.2rem;
+  color: #cfefff;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Paragraphs and meta */
+.submissioncontent p {
+  margin: 10px 0;
+  color: #d9eeff;
+  font-size: 1rem;
+}
+
+/* URL link styling */
+.submissioncontent a {
+  color: #8fe9ff;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(143,233,255,0.18);
+  transition: color 160ms ease, text-shadow 160ms ease, transform 160ms ease;
+}
+
+.submissioncontent a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(140,220,255,0.28), 0 0 6px rgba(150,100,255,0.08);
+  transform: translateY(-1px);
+}
+
+/* Make the URL stand out and wrap properly */
+.submissioncontent p a {
+  word-break: break-all;
+}
+
+/* Small helper meta (if used) */
+.submissioncontent .meta {
+  display: block;
+  font-size: 0.92rem;
+  color: #b6dff8;
+  opacity: 0.95;
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* Action links row (styled as subtle pills) */
+.submissioncontent > p:last-child {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.submissioncontent > p:last-child a {
+  display: inline-block;
+  margin: 0 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110,60,255,0.06), rgba(0,190,255,0.04));
+  border: 1px solid rgba(140,200,255,0.06);
+  color: #dff9ff;
+  text-decoration: none;
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.submissioncontent > p:last-child a:hover {
+  box-shadow: 0 6px 22px rgba(80,160,255,0.14), 0 0 18px rgba(140,80,255,0.08);
+  transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 720px) {
+  .submissioncontent {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .submissioncontent h2 { font-size: 1.5rem; }
+  .submissioncontent h3 { font-size: 1rem; }
+}
+/* ...existing code... */

@@ -16,7 +16,7 @@
                    <a href="/users/account" class="dropbtn">My Account ▾</a>
                    <ul class="dropdown-menu">
                      <li><a href="/users/account">Account</a></li>
-                     <li><a href="/user/submissions">My Submissions</a></li>
+                     <li><a href="/submissions/mine"> My Submissions</a></li>
                      <li><a href="/users/logout">Logout</a></li>
                    </ul>
                  </li>
@@ -29,13 +29,59 @@
   <title><%= title %> - HotOffThePress</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <style>
-    .chat { max-width:720px; margin:20px auto; background:#fff; padding:12px; border-radius:6px; }
-    .messages { height:300px; overflow:auto; border:1px solid #eee; padding:8px; margin-bottom:8px; background:#fafafa; }
-    .msg.user { text-align:right; color:#0b63ff; margin:4px 0; }
-    .msg.bot { text-align:left; color:#333; margin:4px 0; }
-    .composer { display:flex; gap:8px; }
-    .composer input { flex:1; padding:8px; border:1px solid #ddd; }
-    .composer button { padding:8px 12px; background:#0b63ff; color:#fff; border:0; cursor:pointer; }
+            .chat {
+                max-width: 720px;
+                margin: 20px auto;
+                background: rgba(0, 20, 40, 0.8); /* Match background style */
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 15px #00bfff; /* Add shadow for depth */
+                color: #00ffff; /* Text color */
+            }
+            .messages {
+                height: 300px;
+                overflow: auto;
+                border: 1px solid rgba(0, 183, 255, 0.5); /* Match border style */
+                padding: 8px;
+                margin-bottom: 8px;
+                background: rgba(255, 255, 255, 0.9); /* Light background for messages */
+                border-radius: 6px;
+            }
+            .msg.user {
+                text-align: right;
+                color: #0b63ff;
+                margin: 4px 0;
+            }
+            .msg.bot {
+                text-align: left;
+                color: #333;
+                margin: 4px 0;
+            }
+            .composer {
+                display: flex;
+                gap: 8px;
+            }
+            .composer input {
+                flex: 1;
+                padding: 8px;
+                border: 1px solid #00bfff; /* Match input border */
+                border-radius: 6px;
+                background: rgba(0, 10, 30, 0.8); /* Match input background */
+                color: #00ffff; /* Input text color */
+            }
+            .composer button {
+                padding: 8px 12px;
+                background: #00bfff; /* Button background */
+                color: #fff;
+                border: 0;
+                border-radius: 6px; /* Rounded corners */
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+            .composer button:hover {
+                background: #00ffff; /* Button hover effect */
+                box-shadow: 0 0 10px #00ffff; /* Add glow on hover */
+            }
   </style>
 </head>
 <body>
