@@ -7,41 +7,44 @@
 </head>
 <body>
   <div class="banner">
-<div class="navbar">
-            <div class="logo">
-                <video class="logo" autoplay loop muted>
-                    <source src="/videos/aimlog.mp4" type="video/mp4">
-                </video>
-            </div>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/submissions/create">Submit Story</a></li>
-                <li><a href="/submissions">All Submissions</a></li>
-                 <li class="nav-dropdown">
-                   <a href="/users/account" class="dropbtn">My Account ▾</a>
-                   <ul class="dropdown-menu">
-                     <li><a href="/users/account">Account</a></li>
-                     <li><a href="/submissions/mine"> My Submissions</a></li>
-                     <li><a href="/users/logout">Logout</a></li>
-                   </ul>
-                 </li>
-                <li><a href="/aisupport">AI Support</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/about">About Us</a></li>
-            </ul>
-        </div>
+    <div class="nebula-particles" aria-hidden="true"></div>
+    <div class="navbar">
+      <div class="logo">
+          <video class="logo" autoplay loop muted>
+              <source src="/videos/aimlog.mp4" type="video/mp4">
+          </video>
+      </div>
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/submissions/create">Submit Story</a></li>
+          <li><a href="/submissions">All Submissions</a></li>
+           <li class="nav-dropdown">
+             <a href="/users/account" class="dropbtn">My Account ▾</a>
+             <ul class="dropdown-menu">
+               <li><a href="/users/account">Account</a></li>
+               <li><a href="/submissions/mine"> My Submissions</a></li>
+               <li><a href="/users/logout">Logout</a></li>
+             </ul>
+           </li>
+          <li><a href="/aisupport">AI Support</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/about">About Us</a></li>
+      </ul>
+    </div>
 
     <div class="content">
       <h2>Submit a Story</h2>
       <% if (error) { %><p style="color:#ff6b6b"><%= error %></p><% } %>
-      <form method="POST" action="/submissions/create" class="form-container">
-        <label>Title<br><input name="title" required></label><br><br>
-        <label>URL<br><input name="url" type="url"></label><br><br>
-        <label>Content<br><textarea name="content" rows="8" required></textarea></label><br><br>
-        <button type="submit">Submit Story</button>
-      </form>
+      <div class="form-center">
+        <form method="POST" action="/submissions/create" class="submission-form form-container">
+          <label>Title<br><input name="title" required></label><br><br>
+          <label>URL<br><input name="url" type="url"></label><br><br>
+          <label>Content<br><textarea name="content" rows="8" required></textarea></label><br><br>
+          <div class="form-actions"><button type="submit">Submit Story</button></div>
+        </form>
+      </div>
     </div>
   </div>
+  <script src="/javascripts/particles.js" defer></script>
 </body>
-</html>
 </html>

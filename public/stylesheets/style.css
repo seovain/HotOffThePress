@@ -815,46 +815,47 @@ caption {
   transform: translateY(-3px);
 }
 
-/* center new-submission form */
+/* center the create-submission form */
 .form-center {
   display: flex;
-  justify-content: center;
-  padding: 18px 12px;
-}
-
-.form-center .submission-form,
-.form-center .form-container,
-.submission-form {
+  justify-content: center; /* center horizontally */
+  align-items: flex-start;  /* keep form top-aligned inside the container */
+  padding: 20px 12px;
   width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
   box-sizing: border-box;
 }
 
-/* tighten spacing inside the form to match site theme */
-.submission-form input,
-.submission-form textarea,
-.submission-form select,
-.form-container input,
-.form-container textarea {
+.submission-form {
   width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: 1px solid rgba(120,160,255,0.12);
-  background: rgba(6,10,30,0.7);
-  color: #e6f6ff;
+  max-width: 820px;        /* control form width */
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(5,8,20,0.28), rgba(6,10,30,0.16));
+  border: 1px solid rgba(140,100,255,0.05);
+  box-shadow: 0 10px 30px rgba(20,8,60,0.35);
 }
 
-/* submit button styles */
+/* form fields stretch to full width inside centered container */
+.submission-form input,
+.submission-form textarea,
+.submission-form select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* keep submit button aligned center under the form */
+.submission-form .form-actions,
 .submission-form button {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(140,200,255,0.12);
-  background: linear-gradient(90deg, rgba(110,60,255,0.06), rgba(0,190,255,0.04));
-  color: #e6fbff;
-  cursor: pointer;
+  display: block;
+  margin: 14px auto 0;
+}
+
+/* responsive tweak */
+@media (max-width: 720px) {
+  .submission-form { padding: 14px; max-width: 92%; }
+  .form-center { padding: 12px; }
 }
 
 /* ensure nebula particles are behind everything (already used elsewhere) */
