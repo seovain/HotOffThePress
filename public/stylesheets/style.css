@@ -386,3 +386,89 @@ caption {
 .secret label {
   display: none;
 }
+
+/* Styles for the existing ordered list of Hacker News stories (no HTML changes needed) */
+.hackerstories > ol {
+  width: 90%;
+  max-width: 1100px;
+  margin: 12px auto 30px;
+  padding: 0;
+  list-style: none;
+  z-index: 2;
+}
+
+.hackerstories > ol li {
+  background: rgba(0, 20, 40, 0.85);
+  border: 1px solid rgba(0, 183, 255, 0.12);
+  padding: 14px 16px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 183, 255, 0.06);
+  display: grid;
+  grid-template-columns: 1fr 160px; /* title/excerpt | meta (author/date/score) */
+  gap: 12px;
+  align-items: start;
+  color: inherit;
+}
+
+/* Title link (left column) */
+.hackerstories > ol li a {
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  display: inline-block;
+  word-break: break-word;
+}
+.hackerstories > ol li a:hover {
+  color: #e6ffff;
+  text-decoration: underline;
+}
+
+/* Meta block (right column) */
+.hackerstories > ol li > div:nth-of-type(1) {
+  justify-self: end;
+  text-align: right;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  color: #bfefff;
+  white-space: nowrap;
+}
+
+/* Excerpt (falls under the title and spans full width) */
+.hackerstories > ol li > div:nth-of-type(2) {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #cfefff;
+  opacity: 0.95;
+  max-height: 6em;
+  overflow: hidden;
+}
+
+/* Hover state for each "row" */
+.hackerstories > ol li:hover {
+  background: rgba(0, 60, 120, 0.12);
+  box-shadow: 0 0 16px rgba(0, 183, 255, 0.12);
+}
+
+/* Link styles inside excerpt */
+.hackerstories > ol li .excerpt a,
+.hackerstories > ol li .excerpt a:visited { color: #bff7ff; text-decoration: underline; }
+
+/* Mobile / compact layout: stack to readable cards */
+@media (max-width: 800px) {
+  .hackerstories > ol {
+    width: 95%;
+  }
+  .hackerstories > ol li {
+    grid-template-columns: 1fr;
+  }
+  .hackerstories > ol li > div:nth-of-type(1) {
+    justify-self: start;
+    text-align: left;
+    margin-top: 6px;
+  }
+  .hackerstories > ol li > div:nth-of-type(2) {
+    margin-top: 6px;
+  }
+}
