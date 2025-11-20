@@ -312,6 +312,63 @@ button:hover {
   text-shadow: 0 0 15px #00ffff;
 }
 
+/* ...existing code... */
+
+/* Dropdown for My Account */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown .dropbtn {
+  cursor: pointer;
+  text-decoration: none;
+  color: #00ffff;
+  padding: 6px 8px;
+}
+
+.nav-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  background: rgba(0, 20, 40, 0.95);
+  border: 1px solid #00bfff;
+  border-radius: 6px;
+  min-width: 160px;
+  box-shadow: 0 0 10px #00bfff;
+  z-index: 4;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.nav-dropdown .dropdown-menu li {
+  padding: 6px 16px;
+}
+
+.nav-dropdown .dropdown-menu li a {
+  color: #00ffff;
+  text-decoration: none;
+  display: block;
+  transition: background 0.15s;
+}
+
+.nav-dropdown .dropdown-menu li a:hover {
+  background: rgba(0, 100, 160, 0.2);
+  color: white;
+}
+
+/* show on hover (desktop) */
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* small touch devices: make clickable area larger */
+@media (max-width: 700px) {
+  .nav-dropdown .dropbtn { padding-right: 18px; }
+  .navbar ul { flex-wrap: wrap; }
+}
+
 /* Caption text */
 caption {
   font-size: 20px;

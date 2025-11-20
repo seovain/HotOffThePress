@@ -6,14 +6,6 @@
 </head>
 
 <body>
-
-    <!-- MATRIX BACKGROUND (ADD THIS) -->
-    <div class="matrix-bg">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <!-- END MATRIX BACKGROUND -->
-
     <div class="banner">
         <div class="navbar">
             <div class="logo">
@@ -25,12 +17,17 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/submissions/create">Submit Story</a></li>
                 <li><a href="/submissions">All Submissions</a></li>
-                <li><a href="/user/submissions">My Submissions</a></li>
-                <li><a href="/users/account">My Account</a></li>
-                <li><a href="/users/logout">Logout</a></li>
+                 <li class="nav-dropdown">
+                   <a href="/users/account" class="dropbtn">My Account ▾</a>
+                   <ul class="dropdown-menu">
+                     <li><a href="/users/account">Account</a></li>
+                     <li><a href="/user/submissions">My Submissions</a></li>
+                     <li><a href="/users/logout">Logout</a></li>
+                   </ul>
+                 </li>
+                <li><a href="/aisupport">AI Support</a></li>
                 <li><a href="/faq">FAQ</a></li>
                 <li><a href="/about">About Us</a></li>
-                <li><a href="/aisupport">Help</a></li>
             </ul>
         </div>
 
