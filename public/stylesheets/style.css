@@ -1,12 +1,14 @@
 body {
   display: flex;
-  align-items: center;
+  flex-direction: column; /* stack header, content, FAQ, etc. vertically */
+  align-items: stretch;
   min-height: 100vh;
   margin: 0;
   background: black;
   position: relative;
   font-family: 'Courier New', monospace;
   color: #00ffff;
+  overflow-y: auto; /* allow page scrolling */
 }
 
 
@@ -73,12 +75,14 @@ body {
 /* === MAIN CONTENT === */
 .banner {
   width: 100%;
-  height: 100vh;
+  /* remove fixed full-viewport height so page can grow and scroll */
+  min-height: 60vh; /* keeps a large hero area but allows content below */
   background: rgba(0, 0, 0, 0.7);
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px; /* give some breathing room under banner content */
 }
 
 /* Banner base - ensure stacking context */
